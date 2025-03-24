@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Household Services</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; display: none; }
+        h1 { text-align: center; }
+        .search-bar { text-align: center; margin-bottom: 20px; }
+        .search-bar input { width: 80%; padding: 10px; font-size: 16px; }
+        .services { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .service { width: 45%; padding: 10px; border: 1px solid #ccc; margin: 10px; text-align: center; }
+        .service a { text-decoration: none; color: blue; font-weight: bold; }
+        .login-container { max-width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; text-align: center; }
+        .login-container input { width: 100%; padding: 10px; margin: 10px 0; }
+        .login-container button { padding: 10px; width: 100%; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+    <script>
+        function searchService() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let services = document.getElementsByClassName('service');
+            
+            for (let service of services) {
+                let text = service.innerText.toLowerCase();
+                service.style.display = text.includes(input) ? 'block' : 'none';
+            }
+        }
+        
+        function login() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === 'qwertyuiop') {
+                document.querySelector('.login-container').style.display = 'none';
+                document.querySelector('.container').style.display = 'block';
+            } else {
+                alert('Incorrect username or password!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
+    </div>
+    <div class="container">
+        <h1>Find a Service Provider</h1>
+        <div class="search-bar">
+            <input type="text" id="search" onkeyup="searchService()" placeholder="Search for a service...">
+        </div>
+        <div class="services">
+            <div class="service">
+                <h2>Plumber - John Doe</h2>
+                <p>Need plumbing assistance? <a href="tel:+1234567890">Call Now</a></p>
+            </div>
+            <div class="service">
+                <h2>Electrician - Mike Smith</h2>
+                <p>Need electrical work done? <a href="tel:+1234567891">Call Now</a></p>
+            </div>
+            <div class="service">
+                <h2>Mechanic - David Brown</h2>
+                <p>Car trouble? <a href="tel:+1234567892">Call Now</a></p>
+            </div>
+            <div class="service">
+                <h2>Carpenter - James Wilson</h2>
+                <p>Need furniture repairs? <a href="tel:+1234567893">Call Now</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
