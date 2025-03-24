@@ -1,76 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Household Services</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; display: none; }
-        h1 { text-align: center; }
-        .search-bar { text-align: center; margin-bottom: 20px; }
-        .search-bar input { width: 80%; padding: 10px; font-size: 16px; }
-        .services { display: flex; justify-content: space-around; flex-wrap: wrap; }
-        .service { width: 45%; padding: 10px; border: 1px solid #ccc; margin: 10px; text-align: center; }
-        .service a { text-decoration: none; color: blue; font-weight: bold; }
-        .login-container { max-width: 300px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; text-align: center; }
-        .login-container input { width: 100%; padding: 10px; margin: 10px 0; }
-        .login-container button { padding: 10px; width: 100%; background: blue; color: white; border: none; cursor: pointer; }
-    </style>
-    <script>
-        function searchService() {
-            let input = document.getElementById('search').value.toLowerCase();
-            let services = document.getElementsByClassName('service');
-            
-            for (let service of services) {
-                let text = service.innerText.toLowerCase();
-                service.style.display = text.includes(input) ? 'block' : 'none';
-            }
-        }
-        
-        function login() {
-            let username = document.getElementById('username').value;
-            let password = document.getElementById('password').value;
-            
-            if (username === 'admin' && password === 'qwertyuiop') {
-                document.querySelector('.login-container').style.display = 'none';
-                document.querySelector('.container').style.display = 'block';
-            } else {
-                alert('Incorrect username or password!');
-            }
-        }
-    </script>
+    <title>Craveteck</title>
+
+
+    <!-- **========fontawesome cdn
+                  ============** -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- **========bootstrap 5 cdn
+                  ============** -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+    <!-- **========bootstrap 5 dowloaded
+                  ============** -->
+    <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css" />
+    <!--  Owl-carousel css file  -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.green.css" />
+    <!-- **========Fontawesome dowloaded Css
+                                ============** -->
+    <!-- <link rel="stylesheet" href="assets/css/all.css" /> -->
+    <link rel="stylesheet" href="offcanvas-navbar.css" />
+    <!-- **========Main CSS
+                                ============** -->
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button onclick="login()">Login</button>
-    </div>
-    <div class="container">
-        <h1>Find a Service Provider</h1>
-        <div class="search-bar">
-            <input type="text" id="search" onkeyup="searchService()" placeholder="Search for a service...">
+    <!-- **========Header Start
+                  ============** -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo/pngwing.com (6).png" />
+            </a>
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown dropdown1">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-auto-close="outside"
+                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu dropdown-menu1">
+                            <li><a class="dropdown-item" href="electritian.html">Electrician</a></li>
+                            <li><a class="dropdown-item" href="machanical-worker.html">Mechanical Worker</a></li>
+                            <li><a class="dropdown-item" href="cleaner.html">Cleaner</a></li>
+                            <li><a class="dropdown-item" href="mad-servant.html">Mad Servant</a></li>
+                            <li><a class="dropdown-item" href="cook.html">Cook</a></li>
+                            <li><a class="dropdown-item" href="construction-worker.html">Construction Worker</a></li>
+                            <li><a class="dropdown-item" href="plumber.html">Plumber</a></li>
+                            <li><a class="dropdown-item" href="welder.html">Welder</a></li>
+                            <li><a class="dropdown-item" href="ac-technician.html">Ac technician</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex nav-buttons">
+                    <a class="info-btn mx-2" href="mailto:mujadadsarfraz50@gmail.com">Email US</a>
+                    <a class="contact-btn" href="contact.html">Contact</a>
+                </form>
+            </div>
         </div>
-        <div class="services">
-            <div class="service">
-                <h2>Plumber - John Doe</h2>
-                <p>Need plumbing assistance? <a href="tel:+1234567890">Call Now</a></p>
-            </div>
-            <div class="service">
-                <h2>Electrician - Mike Smith</h2>
-                <p>Need electrical work done? <a href="tel:+1234567891">Call Now</a></p>
-            </div>
-            <div class="service">
-                <h2>Mechanic - David Brown</h2>
-                <p>Car trouble? <a href="tel:+1234567892">Call Now</a></p>
-            </div>
-            <div class="service">
-                <h2>Carpenter - James Wilson</h2>
-                <p>Need furniture repairs? <a href="tel:+1234567893">Call Now</a></p>
+    </nav>
+    <!-- **========Header End
+                  ============** -->-
+
+
+    <!-- **========Hero Section Start
+                  ============** -->
+    <section id="hero" class="b-white">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 content">
+                        <div class="hero-content">
+                            <h1>Household</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit temporibus corrupti
+                                laborum perspiciatis! Quis, molestiae.</p>
+                        </div>
+                        <img src="assets/images/shape/like.png" class="like" />
+                        <img src="assets/images/shape/hero-circle.png" class="hero-circle" />
+                        <img src="assets/images/shape/rotate-triangle.png" class="rotate-triangle" />
+
+                        <img src="assets/images/shape/blue-circle.png" class="blue-circle" />
+                        <img src="assets/images/shape/red-circle.png" class="red-circle" />
+                        <img src="assets/images/shape/verticle-circle.png" class="verticle-circle" />
+
+                    </div>
+                    <div class="col-lg-6 caraousel d-flex justify-content-center align-items-end">
+                        <img src="assets/images/index/pngwing.com (13).png" class="hero-image" width="80%" />
+                        <img src="assets/images/shape/hero-dots.png" class="hero-dots" " />
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- **========Hero Section End
+                  ============** -->
+
+    <!-- **========Services Section Start
+                  ============** -->
+
+           <section id="services">
+                        <div class=" container-fluid color-gray">
+                            <div class="container">
+                                <h2 class="text-center heading">Our Services</h2>
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <a href="welder.html">
+                                            <div class="card service-card-one service-Kard">
+                                                <i class="fa-solid fa-fire-flame-simple b-blue"></i>
+                                                <h4>Welder</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="electritian.html">
+                                            <div class="card service-card-two service-Kard">
+                                                <i class="fa-solid fa-lightbulb b-yellow"></i>
+                                                <h4>Electrician</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="plumber.html">
+                                            <div class="card service-card-three service-Kard">
+                                                <i class="fa-solid fa-bong b-dark-purple"></i>
+                                                <h4>Plumber</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="cleaner.html">
+                                            <div class="card service-card-one service-Kard">
+                                                <i class="fa-solid fa-broom b-blue"></i>
+                                                <h4>Cleaner</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="mad-servant.html">
+                                            <div class="card service-card-two service-Kard">
+                                                <i class="fa-solid fa-user-slash b-yellow"></i>
+                                                <h4>Mad Servant</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="construction-worker.html">
+                                            <div class="card service-card-three service-Kard">
+                                                <i class="fa-solid fa-person-digging b-dark-purple"></i>
+                                                <h4>Construction Worker</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="ac-technician.html">
+                                            <div class="card service-card-one service-Kard">
+                                                <i class="fa-solid fa-person-chalkboard b-blue"></i>
+                                                <h4>Ac Technician</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="machanical-worker.html">
+                                            <div class="card service-card-two service-Kard">
+                                                <i class="fa-solid fa-gear b-yellow"></i>
+                                                <h4>Mechanical Worker</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="cook.html">
+                                            <div class="card service-card-three service-Kard">
+                                                <i class="fa-solid fa-utensils b-dark-purple"></i>
+                                                <h4>Cook</h4>
+                                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus
+                                                    excepturi nesciunt inventore ab earum sint nihil, labore sed tenetur
+                                                    nulla, repellendus est quos corporis quam voluptatum modi quia
+                                                    dolore
+                                                    alias magnam necessitatibus! Dolorem incidunt dolores earum minus
+                                                    sequi
+                                                    rerum ipsum molestias. Iusto, doloribus facere.</p>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="container-fluid">
+                            <div class="second-section">
+                                <h2 class="heading responsive-heading text-center">WE BUILD YOUR BRAND HOW YOU ENVISION​
+                                </h2>
+                                <div class="row">
+                                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                                        <img src="assets/images/index/pngwing.com (16).png" class="feature m-auto"
+                                            style="width:60%" />
+                                    </div>
+                                    <div class="col-md-6 pt-5 position-relative">
+                                        <div class="service-box">
+                                            <div class="service-logo">
+                                                <i class="fa-solid fa-phone-volume b-aqua"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4 class="px-3">
+                                                    Fast and Optimized
+                                                </h4>
+                                                <p class="px-3">
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
+                                                    consectetur ex accusantium repellendus distinctio odio esse
+                                                    laudantium. Saepe sequi error reiciendis, deleniti nobis
+                                                    necessitatibus odio?
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="service-box">
+                                            <div class="service-logo">
+                                                <i class="fa-solid fa-gift b-primary"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4 class="px-3">
+                                                    Marketing Solutions
+                                                </h4>
+                                                <p class="px-3">
+                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                    Praesentium nostrum impedit reiciendis ea eum molestiae aliquid in,
+                                                    nulla natus, autem, laboriosam saepe voluptates. Libero.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="service-box">
+                                            <div class="service-logo">
+                                                <i class="fa-solid fa-code b-orange"></i>
+                                            </div>
+                                            <div class="service-content">
+                                                <h4 class="px-3">
+                                                    Time Solving
+                                                </h4>
+                                                <p class="px-3">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                    Consequuntur, mollitia. Numquam nemo rem libero ab sapiente optio
+                                                    tenetur modi iste sint. Doloribus ea optio fugit minus eligendi.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <img src="assets/images/shape/cross.png" class="cross" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+    </section>
+
+
+
+
+    <!-- **========Services Section End
+                  ============** -->
+
+
+    <!-- **========Features Section Strat
+                  ============** -->
+    <section id="features">
+        <div class="container-fluid">
+            <div class="row position-relative p-5">
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-img-first">
+                        <img src="assets/images/aboutt/pngwing.com (8).png" class="feature-img-one "
+                            style="width:70%" />
+                    </div>
+                </div>
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-content ">
+
+                        <div class="feature-content-one p-lg-5 text-sm-center text-md-start">
+                            <h2 class="heading">Who We Are?</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio laborum modi beatae,
+                                incidunt adipisci dolores commodi expedita. Quos molestias tempora consectetur. Vero
+                                animi velit earum, quos optio rem nobis cumque facilis corrupti ipsum itaque harum.
+                                Neque laboriosam quibusdam quas recusandae repudiandae sed corrupti aspernatur
+                                voluptatum quasi magni nesciunt aperiam dolore qui molestiae vitae modi, inventore quos
+                                voluptates maxime cumque quis optio corporis labore quo. Voluptates, dolores, voluptate
+                                quo modi magnam dicta expedita minima at qui repellat dolor sunt reprehenderit sapiente
+                                maiores unde illum aliquid, enim corporis soluta nobis explicabo consequatur nisi
+                                libero. Rerum, porro non animi eaque facilis nisi quia.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row position-relative  p-5">
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-content">
+                        <div class=" feature-content-two p-lg-5 text-sm-center text-md-start">
+                            <h2 class="heading mt-lg-5">Why Choose Us?</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio molestiae dolor quas error,
+                                repudiandae, voluptatibus dicta dignissimos earum, ad laboriosam placeat? Nihil deserunt
+                                nostrum, architecto veritatis hic consectetur a, nemo culpa temporibus consequatur earum
+                                odit assumenda provident accusamus similique dolor reiciendis enim, laboriosam ipsam
+                                fuga eligendi quos soluta animi vitae. Ratione hic magnam vitae nihil, nam ipsa
+                                obcaecati cupiditate deserunt. Aperiam quae dolores totam accusamus nulla sit quaerat,
+                                ex facilis recusandae a voluptatibus hic, culpa labore doloribus enim, earum officia
+                                pariatur. Natus fugit a, ea numquam ullam eum saepe porro minima, ex perferendis,
+                                cupiditate reprehenderit. Perspiciatis, consectetur facilis non vitae a sunt excepturi
+                                voluptas quae. Minus harum repudiandae quia provident aliquam quo quisquam suscipit?
+                                Sequi, explicabo ipsum. Laborum, optio blanditiis?
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-img-second">
+                        <img src="assets/images/index/pngwing.com (15).png" class="feature-img-two" />
+
+                    </div>
+                </div>
+            </div>
+            <div id="scrolling-carousel" class="b-white">
+                <div class="container">
+                    <h1 class="text-center slide-right">What our clients say's</h1>
+                    <p class="text-center slide-left">We stay on top of our industry by being experts in yours.</p>
+                    <div class="owl-carousel owl-theme">
+                        <div class="item">
+                            <img src="assets/images/carousel/118241437.png" class="client" />
+                            <h2>Wajid Siddiqui</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/16066224.jpeg" class="client" />
+                            <h2>Brain Yu</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/118241437.png" class="client" />
+                            <h2>Wajid Siddiqui</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/16066224.jpeg" class="client" />
+                            <h2>Brain Yu</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/118241437.png" class="client" />
+                            <h2>Wajid Siddiqui</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/16066224.jpeg" class="client" />
+                            <h2>Brain Yu</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                        <div class="item">
+                            <img src="assets/images/carousel/118241437.png" class="client" />
+                            <h2>Wajid Siddiqui</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus reprehenderit facilis ut,
+                                vero necessitatibus qui.
+                            </p>
+                            <img src="assets/images/carousel/pngwing.com (4).png" class="rating" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row position-relative p-5">
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-img-third">
+                        <img src="assets/images/aboutt/pngwing.com (7).png" class="feature-img-three "
+                            style="width:65%" />
+                    </div>
+                </div>
+                <div class="col-lg-6 slide-right">
+                    <div class="feature-content">
+
+                        <div class="feature-content-three p-lg-5 text-sm-center text-md-start">
+                            <h2 class="heading">Who We Are?</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam error ut in minus
+                                asperiores? Aperiam sint veritatis repellendus iure recusandae officia beatae molestiae
+                                corporis nostrum at ipsum alias labore consectetur debitis, illo impedit? Consectetur
+                                quas animi ut at deserunt, odio suscipit, fuga obcaecati debitis labore sint! Laboriosam
+                                eos totam delectus odio, molestias aliquid omnis consectetur corrupti hic rem recusandae
+                                doloribus et aut quia nam! Cupiditate commodi numquam eveniet maxime? Quis a atque vel
+                                vero doloribus vitae, alias harum numquam corporis. Eum quo commodi nulla enim dolores
+                                qui placeat officia dolor quod eius neque consectetur, suscipit incidunt. Delectus
+                                similique sequi animi cumque tempore. Vero eos veniam corrupti blanditiis nobis quos
+                                impedit. Molestiae, nihil. Autem necessitatibus porro, temporibus ad nam maxime.
+                                Distinctio.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 b-white p-0 m-0 container-fluid">
+                <div id="contact-cta-box">
+                    <div class="row">
+                        <div class="col-md-9 contact-col">
+                            <h5>Have any question about us?</h5>
+                            <p>Don't be Shy, Say Hi!</p>
+                        </div>
+                        <div class="col-md-3 contact-col">
+                            <a href="contact.html">
+                                <button>
+                                    <i class="fa-solid fa-pen-to-square " style="color:#fff; font-size:20px;"
+                                        href="contact.html"></i><span class="mx-1" style="font-size:25px; color:#fff; 
+                                        font-weight:bolder;">Hi!</span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+    <section id="footer">
+        <div class="cont">
+            <div class="footer-inner">
+
+                <div class="footer-contact d-flex flex-column justify-content-center align-items-center">
+                    <h2 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <button>
+                        <a href="contact.html">
+                            <i class="fa-solid fa-fire-flame-curved mx-1"></i>
+                            <span>Contact Us</span>
+                        </a>
+                    </button>
+                    <img src="assets/images/shape/blue-f.png" class="blue-f d-sm-none d-md-none d-lg-block">
+                    <img src="assets/images/shape/orange-f.png" class="orange-f d-sm-none d-md-none d-lg-block">
+                    <img src="assets/images/shape/zig-zag-f.png" class="zig-zag-f d-sm-none d-md-none d-lg-block">
+                    <img src="assets/images/shape/cross-f.png" class="cross-f d-sm-none d-md-none d-lg-block">
+                </div>
+            </div>
+            <div class="footer-main image mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 d-flex flex-column">
+                            <div class="footer-row-one">
+                                <a href="index.html">
+                                    <img src="assets/images/logo/pngwing.com (6).png" />
+                                </a>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae totam nesciunt
+                                    aperiam, at quam pariatur modi delectus!
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-row-two">
+                                <h4>Support</h4>
+                                <ul class="p-0 m-0">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="#services">Services</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer-row-three">
+                                <h4>Contact Info</h4>
+                                <ul class="p-0 m-0">
+                                    <li>Phone:+923024540201</li>
+                                </ul>
+                                <div class="footer-social-icons d-flex flex-row mt-3">
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="copy-right">
+                                <p class="text-center">Copyright 2023-2025 Muhammad Wajid Siddiqui - All rights reserved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========WhatsApp =========-->
+
+    <a class="whatsApp-btn" href="https://wa.me/+923024540201">
+        <img src="assets/images/whatsapp/pngwing.com (15).png" />
+    </a>
+
+
+    <!-- **========Features Section End
+                  ============** -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- **========bootstrap dowloaded Js
+                  ============** -->
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- **========Jquery CDN
+                                ============** -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- **========Jquery downloaded
+                                ============** -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- **========Owl-carousel js file
+                                ============** -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- **========Main Js
+                                ============** -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+        });
+        document.querySelector('#navbarSideCollapse').addEventListener('click', () => {
+            document.querySelector('.offcanvas-collapse').classList.toggle('open')
+        });
+
+        let nav = document.querySelector("nav");
+
+        window.addEventListener("scroll", function () {
+            if (window.pageYOffset > 100) {
+                nav.classList.add("shadow");
+                nav.classList.add("animation");
+            }
+            else {
+                nav.classList.remove("shadow");
+                nav.classList.remove("animation");
+            }
+        });
+    </script>
 </body>
+
 </html>
